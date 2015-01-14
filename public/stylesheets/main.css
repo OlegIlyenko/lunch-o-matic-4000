@@ -1,0 +1,44 @@
+.jumbotron {
+    /*background-color: #f8f8f8;*/
+    background: none;
+    border: 1px solid #e7e7e7;
+}
+
+.top-offset {
+    padding-top: 80px;
+}
+
+.main-list {
+    padding-left: 20px;
+}
+
+.main-list li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.delete-btn {
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 54px !important;
+}
+
+.todays-title {
+    font-size: 30px;
+    padding-bottom: 30px;
+}
+
+.todays-list {
+    font-size: 30px;
+    padding-left: 120px;
+}
+
+body {
+    font-family: 'Dosis', sans-serif;
+}
+
+.mo-space {
+    padding-right: 8px;
+}

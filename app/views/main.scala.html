@@ -1,0 +1,93 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html lang="en" ng-app="lunchApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>@title</title>
+
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+    <link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+
+      <!-- Bootstrap -->
+    <link href="@routes.Assets.at("bootstrap/css/bootstrap.min.css")" rel="stylesheet">
+
+    <script type="text/javascript" src="@routes.Assets.at("javascripts/angular.min.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.at("javascripts/jquery-2.1.1.min.js")"></script>
+
+    <script type="text/javascript">
+      app = angular.module("lunchApp", [])
+    </script>
+
+    <script type="text/javascript" src="@routes.Assets.at("javascripts/main.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.at("javascripts/list.js")"></script>
+
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+  </head>
+
+  <body>
+    <div class="navbar navbar-fixed-top navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">@title</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        @content
+
+      <div class="col-xs-6 col-sm-3 sidebar-offcanvas top-offset" id="sidebar" role="navigation">
+        <div class="panel panel-default">
+          <div class="panel-heading">Places to choose from</div>
+          <div class="panel-body">
+            <div ng-controller="ListController">
+              <ul class="main-list">
+                <li ng-repeat="place in places">
+                  <span class="done-{{todo.done}}">{{place.name}}</span>
+
+                  <a ng-click="delete(place)" class="delete-btn">
+                    <span class="glyphicon glyphicon-trash"></span>
+                  </a>
+                </li>
+              </ul>
+
+              <form ng-submit="addPlace()" class="form-inline" role="form">
+                <input type="text" ng-model="name" class="form-control" size="20" placeholder="Add new place here">
+                <input class="btn btn-success" type="submit" value="add">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Oleg Ilyenko 2015 :)</p>
+      </footer>
+
+    </div>
+  </body>
+</html>
