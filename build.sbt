@@ -13,3 +13,5 @@ libraryDependencies ++= Seq(
   ws,
   "org.scaldi" %% "scaldi-play" % "0.4.1"
 )
+
+herokuAppName in Compile := "ct-lunch-o-matic-4000 "
